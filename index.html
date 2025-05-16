@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Fabric Minecraft Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="assets/fabric-logo.png" alt="Fabric Logo">
+      <h1>Fabric Minecraft Launcher</h1>
+    </div>
+    <span id="version">v1.0.0</span>
+  </header>
+  
+  <main>
+    <div class="card">
+      <h2>Player Settings</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username">
+      </div>
+
+      <h2>Game Settings</h2>
+      <div class="form-group">
+        <label for="minecraft-version">Minecraft Version</label>
+        <input type="text" id="minecraft-version" readonly>
+      </div>
+      <div class="form-group">
+        <label for="fabric-version">Fabric Version</label>
+        <input type="text" id="fabric-version" readonly>
+      </div>
+      
+      <h2>System Settings</h2>
+      <div class="ram-settings">
+        <div class="form-group">
+          <label for="ram-min">Minimum RAM</label>
+          <select id="ram-min">
+            <option value="1G">1 GB</option>
+            <option value="2G" selected>2 GB</option>
+            <option value="3G">3 GB</option>
+            <option value="4G">4 GB</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ram-max">Maximum RAM</label>
+          <select id="ram-max">
+            <option value="2G">2 GB</option>
+            <option value="4G" selected>4 GB</option>
+            <option value="6G">6 GB</option>
+            <option value="8G">8 GB</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button id="download-btn" class="primary">Download</button>
+        <button id="play-btn" class="primary" disabled>Play</button>
+      </div>
+      
+      <div id="status-box" class="status">
+        <div id="status-message">Initializing launcher...</div>
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

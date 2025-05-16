@@ -1,4 +1,4 @@
-// src/update-checker.js - New file to handle update checking and application
+// src/update-checker.js - Simplified to only check on startup
 
 const https = require('https');
 const path = require('path');
@@ -10,9 +10,10 @@ class UpdateChecker {
   constructor(mainWindow) {
     this.mainWindow = mainWindow;
     this.updateInfo = null;
-    this.GITHUB_OWNER = 'your-github-username';
-    this.GITHUB_REPO = 'fabric-minecraft-launcher';
-    this.UPDATE_CHECK_INTERVAL = 3600000; // Check every hour
+    
+    // Use your GitHub repository details
+    this.GITHUB_OWNER = 'XcaLiber1290';
+    this.GITHUB_REPO = 'FantasticLauncher';
     this.UPDATE_JSON_PATH = 'updates.json';
     
     // Path to store downloaded updates
@@ -25,14 +26,11 @@ class UpdateChecker {
   }
   
   /**
-   * Start periodic update checks
+   * Check for updates once on app startup
    */
-  startUpdateChecks() {
-    // Check immediately on startup
+  checkForUpdatesOnStartup() {
+    // Single check on startup
     this.checkForUpdates();
-    
-    // Then check periodically
-    setInterval(() => this.checkForUpdates(), this.UPDATE_CHECK_INTERVAL);
   }
   
   /**
@@ -40,6 +38,7 @@ class UpdateChecker {
    */
   async checkForUpdates() {
     try {
+      console.log('Checking for updates...');
       const updateData = await this.fetchUpdateData();
       
       if (!updateData) {
@@ -82,7 +81,7 @@ class UpdateChecker {
       
       const request = https.get(apiUrl, {
         headers: {
-          'User-Agent': `FabricLauncher/${currentVersion}`
+          'User-Agent': `FantasticLauncher/${currentVersion}`
         }
       }, (res) => {
         if (res.statusCode === 404) {
@@ -204,11 +203,11 @@ class UpdateChecker {
   }
   
   /**
-   * Apply downloaded update (platform specific implementation required)
+   * Apply downloaded update
    */
   async applyUpdate(updateFilePath) {
-    // This is a simplified implementation - actual implementation depends on your app's architecture
-    // For Electron apps, you might use electron-updater or a custom update mechanism
+    // Implementation depends on your app's architecture
+    // For Electron apps, you might want to extract the ZIP and replace application files
     
     if (!fs.existsSync(updateFilePath)) {
       throw new Error('Update file not found');

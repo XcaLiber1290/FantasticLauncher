@@ -1,5 +1,5 @@
 {
-  "name": "fabric-minecraft-launcher",
+  "name": "FantasticLauncher",
   "version": "1.0.0",
   "description": "A Minecraft launcher that downloads the latest Fabric version and required dependencies",
   "main": "main.js",

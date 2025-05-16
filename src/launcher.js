@@ -15,7 +15,7 @@ const assetVerifier = require('./asset-verifier');
 class Launcher {
   constructor() {
     // Basic configuration
-    this.APP_NAME = 'Fabric Minecraft Launcher';
+    this.APP_NAME = 'FantasticLauncher';
     this.APP_VERSION = '1.0.0';
     
     // Paths

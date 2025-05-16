@@ -5,9 +5,11 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const launcher = require('./src/launcher');
 const assetVerifier = require('./src/asset-verifier');
+const UpdateChecker = require('./src/update-checker');
 
 // Global reference to the mainWindow
 let mainWindow;
+let updateChecker;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
